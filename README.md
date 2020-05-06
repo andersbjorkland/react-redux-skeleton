@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Redux Skeleton
+This is a skeleton project for building React Redux applications. It uses Redux Thunk middleware for asyncronous actions.
 
-## Available Scripts
+## Starting up
+After cloning this repo you should run `npm install`to install all the dependencies.
 
-In the project directory, you can run:
+## React Scripts
+As this skeleton project is built with create-react-app it also comes with a couple of scripts:
+* *npm start* Starts development server at [http://localhost:3000](http://localhost:3000)
+* *npm test* Starts the Jest test runner.
+* *npm run build* Builds the prod version of the app and outputs the files to the `build` folder. Update the `package.json` if you have a need to specify the app url. Example: "homepage": "http://femtearenan.se/projects/skeleton"
+* *npm run eject* Aborts the option for `npm run build` if you want to have full control of the build options. **Once run it removes the option for the default build tool**
 
-### `npm start`
+## Background
+Running create-react-app gives the basics of a React app. To handle state of the app Redux is often the option to use. But this also requires a few more dependencies. If you also want to handle asyncronous actions with Redux that's another dependencies. This skeleton is shortcut for:
+1. `npx create-react-app my-app`
+2. `npm install redux`
+3. `npm install react-redux`
+4. `npm install redux-thunk`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+It also removes som "opinions":
+* App.js no longer is a React-front. Logos for React is removed.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+And set up a whole suite of other opinions. React is prepared for redux with the following files:
+* actions.js *- for contains your actions and action constants*
+* appReducer.js *- for containing your basic state management logic*
+* rootReducer.js *- for combining multiple reducers*
+* store.js *- for applying reducer and middleware to store*
+* index.js *- applys Provisioner with store*
 
-### `npm test`
+## Manual configurations
+As you set up your own React Redux app there are still some configurations you need to do on the existing boiler plate:
+* manifest.json needs to be updated with your app information.
+* icons and logos are boiler plate. As a default they use my logos and favicon. Remember to switch these out in the public folder.
+* index.html should be updated with correct title and meta data
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Connecting React components to Redux state and actions
+Using classes for the components, each class should extend React.Component.
+Export the class with connections to actions and state like this:
+```javascript
+const mapStateToProps = state => ({
+  ...state
+});
 
-### `npm run build`
+const mapDispatchToProps = dispatch => ({
+  pressedKey: (keycode) => dispatch(pressedKey(keycode)),
+  timedout: () => dispatch(timedout()),
+});
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Feedback
+Get in touch with me at anders@femtearenan.se
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Learn more
+[React documentation](https://reactjs.org/docs/getting-started.html)
+[Redux documentation](https://redux.js.org/introduction/getting-started)
+[React Redux](https://react-redux.js.org/)
 
-### `npm run eject`
+[Who is Anders Björkland?](https://www.femtearenan.se/about)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Follow me
+I am active on [Twitter](https://twitter.com/abjorkland) and [LinkedIn](https://www.linkedin.com/in/anders-bj%C3%B6rkland-9679b859). 
