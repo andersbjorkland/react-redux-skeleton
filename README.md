@@ -8,7 +8,7 @@ After cloning this repo you should run `npm install`to install all the dependenc
 As this skeleton project is built with create-react-app it also comes with a couple of scripts:
 * *npm start* Starts development server at [http://localhost:3000](http://localhost:3000)
 * *npm test* Starts the Jest test runner.
-* *npm run build* Builds the prod version of the app and outputs the files to the `build` folder. Update the `package.json` if you have a need to specify the app url. Example: "homepage": "http://femtearenan.se/projects/skeleton"
+* *npm run build* Builds the prod version of the app and outputs the files to the `build` folder. Update the `package.json` if you have a need to specify the app url. Example: "homepage": "http://andersbjorkland.online/projects/skeleton"
 * *npm run eject* Aborts the option for `npm run build` if you want to have full control of the build options. **Once run it removes the option for the default build tool**
 
 ## Background
@@ -51,14 +51,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(App);
 ```
 
 ## Feedback
-Get in touch with me at anders@femtearenan.se
+Get in touch with me at anders@andersbjorkland.online
 
 ## Learn more
 [React documentation](https://reactjs.org/docs/getting-started.html)
 [Redux documentation](https://redux.js.org/introduction/getting-started)
 [React Redux](https://react-redux.js.org/)
 
-[Who is Anders Björkland?](https://www.femtearenan.se/about)
+[Who is Anders Björkland?](https://andersbjorkland.online/about)
 
 ## Follow me
 I am active on [Twitter](https://twitter.com/abjorkland) and [LinkedIn](https://www.linkedin.com/in/anders-bj%C3%B6rkland-9679b859). 
